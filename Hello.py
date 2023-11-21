@@ -24,27 +24,15 @@ def run():
         page_icon="👋",
     )
 
-    st.write("# Welcome to Streamlit! 👋")
+    st.title("Welcome to Streamlit! 👋")
+    st.header('BMI Calculator')
 
-    st.sidebar.success("Select a demo above.")
-
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
+    weight = st.number_input('Enter your weight')
+    height = st.number_input('Enter your height')
+    st.write(f'Your weight is {weight} and your height is {height}.')
+    if weight > 0 and height > 0:
+      bmi = weight/((height*.01)**2)
+      st.write(f'### Your BMI is {bmi:.2f}.')
 
 
 if __name__ == "__main__":
